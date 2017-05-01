@@ -10,15 +10,22 @@
 {!! Form::open(array('route' =>['user.update',$user->id ] , 'method' => 'PATCH','autocomplete'=>'off')) !!}
 <p>
 <label>Nom :</label>
-<input id="nom" type="text" class="form-control" name="nom" required placeholder="{{ $user->name }}" value="{{ $user->name }}">
+<input id="nom" type="text" class="form-control" name="name" required placeholder="{{ $user->name }}" value="{{ $user->name }}">
 </p>
 <p>
     <label>mail :</label>
 
 
-<input id="prenom" type="text" class="form-control" name="prenom" required placeholder="{{ $user->email }}" value="{{ $user->email }}">
+<input id="email" type="text" class="form-control" name="email" required placeholder="{{ $user->email }}" value="{{ $user->email }}">
 </p>
 <p>
+                        <p>
+                            <label>matricule :</label>
+
+
+                            <input id="matricule" type="text" class="form-control" name="matricule" required placeholder="{{ $user->matricule }}" value="{{ $user->matricule }}">
+                        </p>
+                        <p>
     <label>Role : </label> <br>
 <label> Chef de projet :</label>
 <input id="role" type="radio" class="form-control" name="role" required  @if($user->role==1) {{ "checked" }}@endif value=1>

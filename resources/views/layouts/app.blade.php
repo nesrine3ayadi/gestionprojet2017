@@ -38,6 +38,19 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    @if(Auth::check())
+                    @if ( Auth::user()->role==1 )
+
+                    <a href="{{ route('projet.create') }}"> Ajouter projet</a>
+
+                    <a href="{{ route('projet.index') }}"> Liste des projets</a>
+
+                    <a href="{{ route('service.create') }}"> Ajouter un service</a>
+
+                    <a href="{{ route('service.index') }}"> Liste des services</a>
+                   @endif
+                        @endif
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mail extends Model {
+class Chat extends Model {
 
-	protected $table = 'mail';
+	protected $table = 'chat';
 	public $timestamps = true;
+	protected $fillable=['contenu','emetteur','recepteur'];
+
 
 	public function echanger()
 	{

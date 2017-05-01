@@ -8,5 +8,6 @@ class Materiel extends Model {
 
 	protected $table = 'materiel';
 	public $timestamps = true;
+	protected $fillable=['nom_materiel','id_tache'];
 
 }
