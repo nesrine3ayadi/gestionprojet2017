@@ -1,6 +1,13 @@
-@foreach($chat as $c)
-    {{ \App\User::findOrFail($c->emetteur)->name }} :
-    {{ $c->contenu }}
-<br>
+{!! Form::open(array('url' => 'rechercheUser', 'method' => 'POST')) !!}
 
-    @endforeach
+<input type="text" name="recherche">
+{{ Form::submit() }}
+{{ Form::close() }}
+
+
+@foreach($liste as $l)
+
+     <a href="/discussion/{{$l}}">   {{ \App\User::findOrFail($l)->name }}</a>
+
+
+        @endforeach

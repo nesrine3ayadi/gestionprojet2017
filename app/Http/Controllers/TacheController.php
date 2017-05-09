@@ -156,6 +156,16 @@ class TacheController extends Controller {
   {
     
   }
+
+    public function rechercheTache(Request $request){
+        $mot=$request->input('recherche');
+        //dd($mot);
+        /* $p=Projet::where('nomProjet','like','%.$mot.%')
+             ->orderBy('nomProjet')
+             ->paginate(20);*/
+        $tache = Tache::search($mot)->get();
+        return view("tache.recherche")->with('tache',$tache);
+    }
   
 }
 

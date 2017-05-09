@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Chat extends Model {
 
@@ -10,8 +11,10 @@ class Chat extends Model {
 	public $timestamps = true;
 	protected $fillable=['contenu','emetteur','recepteur'];
 
+    use Searchable;
 
-	public function echanger()
+
+    public function echanger()
 	{
 		return $this->belongsTo('User');
 	}

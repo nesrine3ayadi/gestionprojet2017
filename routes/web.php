@@ -47,8 +47,21 @@ Route::resource('reunionUser', 'reunionUserController');
 Route::resource('commentaire', 'commentaireController');
 Route::resource('chat', 'chatController');
 Route::resource('notification', 'notificationController');
+
+
 //Route::post('rechercheProjet', 'projetController@rechercheP');
 Route::post('rechercheProjet','projetController@rechercheP');
+Route::post('rechercheUser','userController@rechercheUser');
+Route::post('rechercheTache','tacheController@rechercheTache');
+
+Route::post('rechercheMsg','chatController@rechercheMsg');
+Route::post('rechercheChat','chatController@rechercheUser');
+Route::get('liste','chatController@liste');
+Route::get('discussion/{id}','chatController@discussion');
+
+
+
+
 /*Route::get('/search', function (Request $request) {
     return App\Projet::search(\Illuminate\Support\Facades\Input::get('search'))->get();
 });*/

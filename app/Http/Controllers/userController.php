@@ -46,7 +46,8 @@ class userController extends Controller {
    */
   public function show($id)
   {
-    
+    $user=User::findOrFail($id);
+    return view('user.show')->with('user',$user);
   }
 
   /**
@@ -79,6 +80,14 @@ class userController extends Controller {
       $u->password=bcrypt($request->input('password'));
       $u->matricule=$request->input("matricule");
       $u->role=$request->input("role");
+
+      $files=$request->file('photo');
+      $files->storeAs('./photo',$files->getClientOriginalName(),'public');
+
+      $u->photo=$files->getClientOriginalName();
+
+
+
       $u->save();
 
     /*  $user =user::findOrFail($id);
@@ -104,7 +113,17 @@ class userController extends Controller {
 
 
   }
-  
+    public function rechercheUser(Request $request){
+        $mot=$request->input('recherche');
+        //dd($mot);
+        /* $p=Projet::where('nomProjet','like','%.$mot.%')
+             ->orderBy('nomProjet')
+             ->paginate(20);*/
+        $u = User::search($mot)->get();
+        return view("user.recherche")->with('u',$u);
+    }
 }
+  
+
 
 ?>

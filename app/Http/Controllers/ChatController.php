@@ -82,7 +82,8 @@ if ($msgNomlu) {
    */
   public function show($id)
   {
-    
+    $chat=Chat::findOrFail($id);
+    return view('Chat.show')->with('chat',$chat);
   }
 
   /**
@@ -117,7 +118,53 @@ if ($msgNomlu) {
   {
     
   }
-  
+    public function rechercheMsg(Request $request)
+    {
+        $mot = $request->input('recherche');
+        //dd($mot);
+        /* $p=Projet::where('nomProjet','like','%.$mot.%')
+             ->orderBy('nomProjet')
+             ->paginate(20);*/
+        $c = Chat::search($mot)->get();
+        return $c;
+
+    }
+    public function rechercheUser(Request $request){
+        $mot=$request->input('recherche');
+        //dd($mot);
+        /* $p=Projet::where('nomProjet','like','%.$mot.%')
+             ->orderBy('nomProjet')
+             ->paginate(20);*/
+        $u = User::search($mot)->get();
+        return view("Chat.recherche")->with('u',$u);
+}
+    public function Liste(){
+
+        $liste= Chat::where('emetteur','=',Auth::user()->id)
+            ->orWhere('recepteur', Auth::user()->id)
+            ->get();
+        $table=[];
+        foreach ($liste as $l){
+              array_push($table,$l->emetteur);
+          }
+          $table1=array_unique($table);
+            $liste=$table1;
+            return view("Chat.index")->with('liste',$liste);
+    }
+
+    public function discussion($id){
+        $chat=Chat::where([
+            ['recepteur','=',Auth::user()->id],
+            ['emetteur','=',$id]
+        ])
+            ->orWhere([
+                ['recepteur','=',$id],
+                ['emetteur','=',Auth::user()->id]
+            ])->get();
+
+         return view("Chat.discussion")->with('chat',$chat);
+
+    }
 }
 
 ?>

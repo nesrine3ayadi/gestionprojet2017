@@ -3,8 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Scout\Searchable;
 
 class Tache extends Model {
+    use Notifiable;
+    use Searchable;
 
 	protected $table = 'tache';
 	public $timestamps = true;

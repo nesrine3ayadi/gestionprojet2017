@@ -7,11 +7,21 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
 
-{!! Form::open(array('route' =>['user.update',$user->id ] , 'method' => 'PATCH','autocomplete'=>'off')) !!}
-<p>
+                        {!! Form::open(array('route' => ['user.update',$user->id ], 'method' => 'PATCH', 'enctype'=>'multipart/form-data')) !!}
+
+                        <p>
 <label>Nom :</label>
 <input id="nom" type="text" class="form-control" name="name" required placeholder="{{ $user->name }}" value="{{ $user->name }}">
 </p>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <label> Photo profile</label>
+                                {!! Form::file('photo')!!}
+                                {!! Form::token() !!}
+
+
+                            </div>
+                        </div>
 <p>
     <label>mail :</label>
 
