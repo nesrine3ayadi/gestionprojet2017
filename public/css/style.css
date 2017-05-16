@@ -1,0 +1,48 @@
+#login-body{
+    background: #F2F2F2;
+}
+.form-login{
+    background: #FFFFFF;
+    width: 35%;
+    height: 50%;
+    margin: auto;
+    padding: 5%;
+    -webkit-box-shadow: 0 0 3px 0 #000000;
+    box-shadow: 0 0 3px 0 #000000;
+}
+.logo{
+    width: 27%;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    padding: 1%;
+}
+.img-logo{
+    width: 65%;
+    margin: auto;
+}
+.input-field label {
+    color: #06BF51;
+}
+.input-field input[type=text]{
+    border-bottom: 1px solid #06BF51;
+    box-shadow: 0 1px 0 0 #06BF51;
+}
+
+.input-field input[type=text]:focus{
+    border-bottom: 1px solid #06BF51;
+    box-shadow: 0 1px 0 0 #06BF51;
+}
+.input-field input[type=text]:focus + label {
+    color: #06BF51;
+}
+.titre-login{
+    font-size: 18px;
+    color: #06bf51;
+    margin-top: 0px !important;
+}
+.btn-suivant{
+    background-color:#06BF51 !important; ;
+}
+
+
