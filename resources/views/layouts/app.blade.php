@@ -11,6 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -28,6 +30,7 @@
             <div class="container">
                 <div class="navbar-header">
 
+
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
@@ -37,28 +40,16 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    @if(Auth::check())
-                    @if ( Auth::user()->role==1 )
 
-                    <a href="{{ route('projet.create') }}"> Ajouter projet</a>
-
-                    <a href="{{ route('projet.index') }}"> Liste des projets</a>
-
-                    <a href="{{ route('service.create') }}"> Ajouter un service</a>
-
-                    <a href="{{ route('service.index') }}"> Liste des services</a>
-                   @endif
-                        @endif
-
+                    
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        &nbsp;  <a class="navbar-brand " href="{{ url('/') }}">
+                            <img class="img-responsive img-logo" src="{{ asset('images/logo.png') }}">
+                        </a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -98,5 +89,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
 </body>
 </html>
